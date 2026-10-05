@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en" data-bs-theme="light">
   <head>
-    <title>Title</title>
+    <title>Aptech Garden</title>
     <!-- Required meta tags -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -15,21 +15,193 @@
     />
 
     <style>
-      .hero-title {
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
         font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-        font-size: 3rem;
+      }
+
+      .hero {
+        min-height: 100vh;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        right: -10%;
+        width: 500px;
+        height: 500px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        animation: float 6s ease-in-out infinite;
+      }
+
+      .hero::after {
+        content: "";
+        position: absolute;
+        bottom: -30%;
+        left: -5%;
+        width: 400px;
+        height: 400px;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 50%;
+        animation: float 8s ease-in-out infinite reverse;
+      }
+
+      @keyframes float {
+        0%, 100% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(30px);
+        }
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 1;
+        text-align: center;
+        color: white;
+        max-width: 800px;
+        padding: 20px;
+      }
+
+      .hero-title {
+        font-size: 4rem;
         font-weight: 800;
         letter-spacing: 0.08em;
         text-transform: uppercase;
-        color: #0d6efd;
-        text-shadow: 2px 2px 8px rgba(13, 110, 253, 0.2);
-        margin-top: 2rem;
+        margin-bottom: 1rem;
+        text-shadow: 3px 3px 12px rgba(0, 0, 0, 0.3);
+        animation: slideDown 0.8s ease-out;
+      }
+
+      .hero-subtitle {
+        font-size: 1.5rem;
+        font-weight: 300;
+        margin-bottom: 2rem;
+        color: rgba(255, 255, 255, 0.95);
+        animation: slideUp 0.8s ease-out 0.2s both;
+      }
+
+      .hero-description {
+        font-size: 1.1rem;
+        margin-bottom: 3rem;
+        color: rgba(255, 255, 255, 0.9);
+        line-height: 1.6;
+        animation: slideUp 0.8s ease-out 0.4s both;
+      }
+
+      @keyframes slideDown {
+        from {
+          opacity: 0;
+          transform: translateY(-30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes slideUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .btn-hero {
+        padding: 12px 40px;
+        font-size: 1.1rem;
+        font-weight: 600;
+        border-radius: 50px;
+        margin: 0 10px;
+        transition: all 0.3s ease;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        animation: slideUp 0.8s ease-out 0.6s both;
+      }
+
+      .btn-primary-hero {
+        background: white;
+        color: #667eea;
+        border: 2px solid white;
+      }
+
+      .btn-primary-hero:hover {
+        background: #667eea;
+        color: white;
+        transform: translateY(-3px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      }
+
+      .btn-secondary-hero {
+        background: transparent;
+        color: white;
+        border: 2px solid white;
+      }
+
+      .btn-secondary-hero:hover {
+        background: white;
+        color: #667eea;
+        transform: translateY(-3px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      }
+
+      @media (max-width: 768px) {
+        .hero-title {
+          font-size: 2.5rem;
+        }
+
+        .hero-subtitle {
+          font-size: 1.2rem;
+        }
+
+        .hero-description {
+          font-size: 1rem;
+        }
+
+        .btn-hero {
+          display: block;
+          margin: 10px auto;
+          width: 90%;
+          max-width: 300px;
+        }
       }
     </style>
   </head>
 
   <body>
-    <h1 class="hero-title text-center">Aptech Garden Zindabad</h1>
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-content">
+        <h1 class="hero-title">Aptech Garden</h1>
+        <p class="hero-subtitle">Zindabad ✨</p>
+        <p class="hero-description">
+          Welcome to our amazing community. Discover beautiful gardens, learn from experts,
+          and join thousands of gardening enthusiasts worldwide.
+        </p>
+        <div class="d-flex justify-content-center flex-wrap">
+          <button class="btn btn-hero btn-primary-hero">Get Started</button>
+          <button class="btn btn-hero btn-secondary-hero">Learn More</button>
+        </div>
+      </div>
+    </section>
 
     <!-- Bootstrap JavaScript Bundle (includes Popper) -->
     <script
